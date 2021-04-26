@@ -48,15 +48,17 @@ class Mahasiswa_model
 		$query="INSERT INTO mhs
 			VALUES ('',:nama_lengkap,:nrp,:email,:jurusan)
 		";
-		$this->db->query($query);
 
-		$this->db->bind('nama_lengkap',$data['nama_lengkap']);
-		$this->db->bind('nrp',$data['nrp']);
-		$this->db->bind('email',$data['email']);
-		$this->db->bind('jurusan',$data['jurusan']);	
-		$this->db->execute();
+			$this->db->query($query);
 		
-		return $this->db->rowCount();
+			$this->db->bind('nama_lengkap',$data['nama_lengkap']);
+			$this->db->bind('nrp',$data['nrp']);
+			$this->db->bind('email',$data['email']);
+			$this->db->bind('jurusan',$data['jurusan']);	
+			$this->db->execute();
+		
+			return $this->db->rowCount();
+		
 
 	}
 

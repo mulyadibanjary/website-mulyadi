@@ -22,6 +22,7 @@ class Mahasiswa extends Controller
 		$this->view('templates/header',$data);
 		$this->view('mahasiswa/detail',$data);
 		$this->view('templates/footer');
+		
 	}
 
 	public function insert()
@@ -30,7 +31,7 @@ class Mahasiswa extends Controller
 			header('location: '.BASEURL.'/mahasiswa');
 			exit;
 		}
-
 	}
+	
 
 }
