@@ -1,6 +1,13 @@
 <div class="container mt-3">
+
+<div class="row">
+  <div class="col-lg-6">
+    <?php Flasher::flash();?>
+  </div>
+</div>
+
     <div class="row">
-        <div class="col-6">
+        <div class="col-lg-6">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">
             Tambah Mahasiswa
         </button><br><br>
@@ -46,8 +53,8 @@
             <label for="jurusan" class="form-label">Jurusan</label>
             <input type="text" class="form-control" id="jurusan" name="jurusan" placeholder="Jurusan">
           </div>
-      </div>
 
+      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary">Tambah Data</button>
