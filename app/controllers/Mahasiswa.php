@@ -25,6 +25,7 @@ class Mahasiswa extends Controller
 		
 	}
 
+
 	public function tambah()
 	{
 		
@@ -34,6 +35,22 @@ class Mahasiswa extends Controller
 			exit;
 		}else{
 			Flasher::setFlash('gagal','ditambahkan','danger');
+			header('location: '.BASEURL.'/mahasiswa');
+			exit;
+		}
+		
+		//var_dump($_POST);
+	}
+
+	public function delete($id)
+	{
+		
+		if ($this->model('Mahasiswa_model')->deleteMahasiswa($id)>0) {
+			Flasher::setFlash('berhasil','dihapus','success');
+			header('location: '.BASEURL.'/mahasiswa');
+			exit;
+		}else{
+			Flasher::setFlash('gagal','dihapus','danger');
 			header('location: '.BASEURL.'/mahasiswa');
 			exit;
 		}
