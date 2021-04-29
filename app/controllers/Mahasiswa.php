@@ -25,12 +25,15 @@ class Mahasiswa extends Controller
 		
 	}
 
-	public function insert()
+	public function tambah()
 	{
-		if ($this->model('Mahasiswa_model')->tambahDataMahasiswa($_POST>0)) {
+		
+		if ($this->model('Mahasiswa_model')->tambahDataMahasiswa($_POST)>0) {
 			header('location: '.BASEURL.'/mahasiswa');
 			exit;
 		}
+		
+		//var_dump($_POST);
 	}
 	
 
