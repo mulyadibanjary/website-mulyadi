@@ -18,6 +18,7 @@
                     <?= $mhs['nama_lengkap']?>
                     <a href="<?= BASEURL;?>/mahasiswa/delete/<?= $mhs['id'];?>" class="badge bg-danger float-end ms-1"
                     onclick="return confirm('Anda yakin akan menghapus data ini?');">Delete</a>  
+                    <a href="<?= BASEURL;?>/mahasiswa/update/<?= $mhs['id'];?>" class="badge bg-success float-end ms-1 tampilModalEdit" data-bs-toggle="modal" data-bs-target="#formModal">Edit</a>
                     <a href="<?= BASEURL;?>/mahasiswa/detail/<?= $mhs['id'];?>" class="badge bg-primary float-end ms-1">Detail</a>
                     </li>
                     <?php endforeach;?>
