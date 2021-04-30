@@ -54,13 +54,35 @@ class Mahasiswa_model
 			$this->db->bind('nama_lengkap',$data['nama_lengkap']);
 			$this->db->bind('nrp',$data['nrp']);
 			$this->db->bind('email',$data['email']);
-			$this->db->bind('jurusan',$data['jurusan']);	
+			$this->db->bind('jurusan',$data['jurusan']);
+			
 			$this->db->execute();
 		
 			return $this->db->rowCount();
 		
 
 	}
+
+	public function updateDataMahasiswa($data)
+	{
+		$query="UPDATE mhs
+			SET nama_lengkap:nama_lengkap,nrp=:nrp,email=:email,jurusan=:jurusan WHERE id=:id
+		";
+
+			$this->db->query($query);
+		
+			$this->db->bind('nama_lengkap',$data['nama_lengkap']);
+			$this->db->bind('nrp',$data['nrp']);
+			$this->db->bind('email',$data['email']);
+			$this->db->bind('jurusan',$data['jurusan']);	
+			$this->db->bind('id',$data['id']);	
+			$this->db->execute();
+		
+			return $this->db->rowCount();
+		
+
+	}
+	
 	
 	public function deleteMahasiswa($id)
 	{
