@@ -34,7 +34,14 @@ class Mahasiswa_model
 		$this->db->query('SELECT * FROM '.$this->table);
 		return $this->db->resultSet();
 	}
-
+	public function SearchMahasiswa()
+	{
+		$keyword=$_POST['cari'];
+		$query="SELECT * FROM mhs WHERE nama_lengkap like :cari";
+		$this->db->query($query);
+		$this->db->bind('cari',"%$keyword%");
+		return $this->db->resultSet();
+	}
 	public function getMahasiswaById($id)
 	{
 
@@ -66,16 +73,16 @@ class Mahasiswa_model
 	public function updateDataMahasiswa($data)
 	{
 		$query="UPDATE mhs
-			SET nama_lengkap:nama_lengkap,nrp=:nrp,email=:email,jurusan=:jurusan WHERE id=:id
+			SET nama_lengkap=:nama_lengkap,nrp=:nrp,email=:email,jurusan=:jurusan WHERE id=:id
 		";
 
 			$this->db->query($query);
-		
+			$this->db->bind('id',$data['id']);	
 			$this->db->bind('nama_lengkap',$data['nama_lengkap']);
 			$this->db->bind('nrp',$data['nrp']);
 			$this->db->bind('email',$data['email']);
 			$this->db->bind('jurusan',$data['jurusan']);	
-			$this->db->bind('id',$data['id']);	
+			
 			$this->db->execute();
 		
 			return $this->db->rowCount();

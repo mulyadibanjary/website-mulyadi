@@ -15,6 +15,15 @@ class Mahasiswa extends Controller
 		$this->view('templates/footer');
 	}
 
+	public function cari()
+	{
+		$data['judul']='Daftar Mahasiswa';
+		$data['mhs']=$this->model('Mahasiswa_model')->SearchMahasiswa();
+		$this->view('templates/header',$data);
+		$this->view('mahasiswa/index',$data);
+		$this->view('templates/footer');
+	}
+
 	public function detail($id)
 	{
 		$data['judul']='Detail Mahasiswa';
@@ -44,6 +53,7 @@ class Mahasiswa extends Controller
 
 	public function save()
 	{
+		
 		
 		if ($this->model('Mahasiswa_model')->updateDataMahasiswa($_POST)>0) {
 			Flasher::setFlash('berhasil','diubah','success');
